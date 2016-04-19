@@ -1,0 +1,30 @@
+{
+  "name": "poet",
+  "version": "1.0.0",
+  "description": "A server that builds poetry based on experiencing conversation and discourse in digital cultures",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicschumann/digital-poet.git"
+  },
+  "keywords": [
+    "digital-culture",
+    "computational-poetry",
+    "cultural-information",
+    "microcultures",
+    "epics"
+  ],
+  "author": "nicschumann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicschumann/digital-poet/issues"
+  },
+  "homepage": "https://github.com/nicschumann/digital-poet#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "youtube-api": "^1.4.0"
+  }
+}
