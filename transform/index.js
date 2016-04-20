@@ -9,6 +9,10 @@ module.exports = function( retrieve, options ) {
 
 	var resume = require('./resume')( persist );
 
+	var state = {
+		initial: require('./state/initial-state')
+	}
+
 	return {
 		/**
 		 * [basepoint description]
@@ -28,9 +32,6 @@ module.exports = function( retrieve, options ) {
 
 					if ( exists ) {
 
-						console.log( exists );
-						console.log( composition_id );
-
 						persist.retrieveComposition( composition_id, function( composition ) {
 
 							done( null, composition_id, composition );
@@ -39,13 +40,21 @@ module.exports = function( retrieve, options ) {
 
 					} else {
 
-						var initialState = {state:'empty'};
+						retrieve.basepoint( basepoint_id, function( err, data ) {
 
-						persist.createComposition( basepoint_id, initialState, function( err, id ) {
+							if ( err ) { done( err ); }
 
-							done( err, id, initialState );
+							var initialState = state.initial( data );
+
+							persist.createComposition( basepoint_id, initialState, function( err, id ) {
+
+								done( err, id, initialState );
+
+							});
 
 						});
+
+
 
 					}
 
