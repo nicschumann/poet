@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicschumann/digital-poet.git"
+    "url": "git+https://github.com/nicschumann/poet.git"
   },
   "keywords": [
     "digital-culture",
@@ -20,9 +20,9 @@
   "author": "nicschumann",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nicschumann/digital-poet/issues"
+    "url": "https://github.com/nicschumann/poet/issues"
   },
-  "homepage": "https://github.com/nicschumann/digital-poet#readme",
+  "homepage": "https://github.com/nicschumann/poet#readme",
   "dependencies": {
     "express": "^4.13.4",
     "firebase": "^2.4.2",
