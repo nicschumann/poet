@@ -26,6 +26,9 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+.sass-cache
+bourbon
+neat
 
 # Optional npm cache directory
 .npm
@@ -35,3 +38,9 @@ jspm_packages
 
 # Project Specific Ignores
 keys.json
+
+
+# Ignore Compiled Outputs
+bundle.js
+bundle.css
+*.css.map
