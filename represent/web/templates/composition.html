@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ id }}{% endblock %}
+
+{% block content %}
+	<article class="composition">
+		<section class="block composition-meta">
+			<div class="composition-id">
+				<h2>{{ id }}</h2>
+				<h3 class="state">State: {{ state.type }}</h3>
+				<p class="small meta-description">
+					This is the unique composition identifier associated with this project,
+					paired with the current state of the composition
+				</p>
+			</div>
+			<div class="basepoint-ids">
+				{% if state.alternatives.length > 0 %}
+				<ul class="alternatives">
+					{% for choice in state.alternatives|groupBy('basepoint_id') %}
+
+					<li class="alternative-basepoint">
+						<h4 class="alternative-basepoint-title"><a href="http://youtube.com/watch?v={{ loop.key }}">{{ loop.key }}</a></h4>
+					</li>
+
+					{% endfor %}
+				</ul>
+				{% endif %}
+				<p class="small meta-description">
+					This represents the set of basepoints in consideration in the current composition state.
+				</p>
+			</div>
+		</section>
+		<section class="block composition-state">
+
+		{% if  state.alternatives.length > 0 %}
+		<div class="">
+
+		<ul class="alternatives">
+
+			{% for thread in state.alternatives %}
+
+			<li class="alternative">
+				<div class="thread-id">
+					<h6>{{ thread.id }}</h6>
+				</div>
+				<div class="thread-contents">
+					<ul class="comment-content">
+						{% for comment in thread.comments %}
+						
+						<li class="comment">
+							<div class="author">
+								<h5>{{ comment.author}}</h5>
+								<h6 class="hidden">{{ comment.author_id }}</h6>
+							</div>
+
+							<div class="text">
+								<p>{{ comment.text }}</p>
+							</div>
+						</li>
+
+						{% endfor %}
+					</ul>
+				</div>
+			</li>
+
+			{% endfor %}
+
+		</ul>
+
+		{% endif %}
+			
+		</section>
+	</article>
+
+{% endblock %}

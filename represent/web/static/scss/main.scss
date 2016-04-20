@@ -1,0 +1,91 @@
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+@import '_variables';
+@import '_typography';
+
+ul, ol {
+	list-style: none;
+
+	margin:0;
+	border:0;
+	padding:0;	
+
+}
+
+.hidden {
+	display:none;
+}
+
+body {
+	background-color: $background-color;
+	color: $body-color;
+	font-size: 16px;
+}
+
+article {
+	@include outer-container();
+}
+
+section {
+	@include span-columns(12 of 12);
+	@include omega();
+
+	padding: 4em;
+
+	.composition-id {
+		@include span-columns( 9 of 12 );
+
+	}
+
+	.basepoint-ids {
+		@include span-columns( 3 of 12 );
+	}
+
+	.alternatives {
+		@include span-columns( 12 of 12 );
+
+		.alternative {
+
+			margin-bottom: 2em;
+		
+			@include span-columns( 12 of 12 );
+
+			.thread-id {
+				@include span-columns( 4 of 12 );
+
+				text-decoration: underline;
+
+
+			}
+
+			.thread-contents {
+				@include span-columns( 8 of 12 );
+
+				border-left: 2px solid $body-color;
+				padding-left:1em;
+
+
+
+			}
+
+		}
+
+	}
+
+}
+
+.comment {
+	@include span-columns( 8 of 8 );
+
+	margin-bottom:2em;
+
+	.author {
+		@include span-columns(3 of 8);
+	}
+
+	.text {
+		@include span-columns(5 of 8);
+	}
+}
+
